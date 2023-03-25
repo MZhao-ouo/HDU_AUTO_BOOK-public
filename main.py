@@ -150,6 +150,7 @@ class SeatAutoBooker:
 
 
 if __name__ == "__main__":
+    print("本地时间：", datetime.now())
     with open("_config.yml", 'r') as f_obj:
         cfg = yaml.safe_load(f_obj)
 
