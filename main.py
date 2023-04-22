@@ -14,6 +14,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 time_zone = 8  # 时区
+time_zone = 8  # 时区
 
 # 两天后日期
 key = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][(datetime.now().weekday() + 2) % 7]
@@ -25,6 +26,9 @@ def get_one_study_room_seat(floor):
     if floor == 4:
         # 28868-29237
         return random.randint(28868, 29237)
+    if floor == 22:
+        # 58560-58759
+        return random.randint(58560, 58759)
 
 
 class SeatAutoBooker:
@@ -75,6 +79,8 @@ class SeatAutoBooker:
             seats = [get_one_study_room_seat(2)]
         elif self.type == "四楼自习室":
             seats = [get_one_study_room_seat(4)]
+        elif self.type == "电子阅览室":
+            seats = [get_one_study_room_seat(22)]
         # 相关post参数生成
         today_0_clock = datetime.strptime(datetime.now().strftime("%Y-%m-%d 00:00:00"), "%Y-%m-%d %H:%M:%S")
         book_time = today_0_clock + timedelta(days=2) + timedelta(hours=start_hour)
@@ -161,7 +167,7 @@ if __name__ == "__main__":
 
     # 阅览室晚上9点开始预约，自习室晚上8点半开始预约
 
-    if "自习室" not in cfg[key]["type"]:
+    if( "自习室" not in cfg[key]["type"]) and ( "电子阅览室" not in cfg[key]["type"]):
         # 阅览室
         if datetime.now().hour <= 20 - time_zone or datetime.now().hour == 20 - time_zone and datetime.now().minute < 30:  # github action cron定时有波动
             print("阅览室预约于21点开始预约，现在还未到预约时间，请检查下一个Action")
