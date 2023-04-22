@@ -14,7 +14,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 time_zone = 8  # 时区
-time_zone = 8  # 时区
 
 # 两天后日期
 key = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'][(datetime.now().weekday() + 2) % 7]
@@ -79,7 +78,7 @@ class SeatAutoBooker:
             seats = [get_one_study_room_seat(2)]
         elif self.type == "四楼自习室":
             seats = [get_one_study_room_seat(4)]
-        elif self.type == "电子阅览室":
+        elif self.type == "二楼电子阅览室":
             seats = [get_one_study_room_seat(22)]
         # 相关post参数生成
         today_0_clock = datetime.strptime(datetime.now().strftime("%Y-%m-%d 00:00:00"), "%Y-%m-%d %H:%M:%S")
