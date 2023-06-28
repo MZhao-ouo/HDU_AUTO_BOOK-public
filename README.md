@@ -14,7 +14,7 @@
 # 使用方法
 如有任何问题，欢迎在issue中询问。
 ## 配置
- 1. fork本仓库
+ 1. fork本仓库（可以点击这个按钮<img alt="GitHub forks" src="https://img.shields.io/github/forks/HaleyCH/HDU_AUTO_BOOK-public?link=https%3A%2F%2Fgithub.com%2FHaleyCH%2FHDU_AUTO_BOOK-public%2Ffork">）
  2. 点击仓库中的 `setting` 标签， 选中 `Secrets` 选项卡
  3. 点击 `New repository secret` 按钮，新建环境变量。
 
